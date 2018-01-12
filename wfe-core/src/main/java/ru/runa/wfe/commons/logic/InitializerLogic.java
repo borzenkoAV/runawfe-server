@@ -59,6 +59,7 @@ import ru.runa.wfe.commons.dbpatch.impl.AddSequentialFlagToBot;
 import ru.runa.wfe.commons.dbpatch.impl.AddSettingsTable;
 import ru.runa.wfe.commons.dbpatch.impl.AddSubProcessIndexColumn;
 import ru.runa.wfe.commons.dbpatch.impl.AddSubprocessBindingDatePatch;
+import ru.runa.wfe.commons.dbpatch.impl.AddTestTablePatch;
 import ru.runa.wfe.commons.dbpatch.impl.AddTitleAndDepartmentColumnsToActorPatch;
 import ru.runa.wfe.commons.dbpatch.impl.AddTokenErrorDataPatch;
 import ru.runa.wfe.commons.dbpatch.impl.AddTokenMessageSelectorPatch;
@@ -168,6 +169,10 @@ public class InitializerLogic implements ApplicationListener<ContextRefreshedEve
         patches.add(EmptyPatch.class);
         patches.add(AddTokenMessageSelectorPatch.class);
         patches.add(AddSubprocessBindingDatePatch.class);
+        // 4.3.1
+        patches.add(AddTestTablePatch.class);
+        // test patch rollback
+        patches.add(AddTestTablePatch.class);
         dbPatches = Collections.unmodifiableList(patches);
     };
 
